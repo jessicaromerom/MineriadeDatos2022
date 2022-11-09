@@ -14,16 +14,14 @@ library(readr)
 library(tidyr)
 library(dplyr)
 
-meta_agromet <- readRDS("../Taller_JessicaRomero/data/data_raw/metadata_estaciones_agrometAPI.rds")
-meta_agv <- readRDS("../Taller_JessicaRomero/data/data_raw/metadata_estaciones_agvAPI(1).rds")
-station_agromet_jessica <- readRDS("../Taller_JessicaRomero/data/data_raw/station_id_agromet_Jesica.rds")
-station_agv_jessica <- readRDS("../Taller_JessicaRomero/data/data_raw/station_id_agv_Jesica.rds")
-data_estaciones_agvAPI <- readRDS("../Taller_JessicaRomero/data/data_raw/data_agvAPI.rds")
-data_estaciones_agrometAPI <- readRDS("../Taller_JessicaRomero/data/data_raw/data_estaciones_agrometAPI.rds")
+meta_agromet <- readRDS("../data/data_raw/metadata_estaciones_agrometAPI.rds")
+station_agromet_jessica <- readRDS("../data/data_raw/station_id_agromet_Jesica.rds")
+station_agv_jessica <- readRDS("../data/data_raw/station_id_agv_Jesica.rds")
+data_estaciones_agvAPI <- readRDS("../data/data_raw/data_agvAPI.rds")
+data_estaciones_agrometAPI <- readRDS("../data/data_raw/data_estaciones_agrometAPI.rds")
 
 
 meta_agromet_jess <- meta_agromet[meta_agromet$ema %in% station_agromet_jessica,]
-meta_agv_jess <- meta_agv[meta_agv$serial %in% station_agv_jessica,]
 
 
 data_agromet_jess <- data_estaciones_agrometAPI[data_estaciones_agrometAPI$station_id %in% station_agromet_jessica,]
