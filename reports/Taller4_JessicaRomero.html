@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jessica Romero">
+
+<title>Taller 4</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Taller4_JessicaRomero_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Taller4_JessicaRomero_files/libs/quarto-html/quarto.js"></script>
+<script src="Taller4_JessicaRomero_files/libs/quarto-html/popper.min.js"></script>
+<script src="Taller4_JessicaRomero_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Taller4_JessicaRomero_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Taller4_JessicaRomero_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Taller4_JessicaRomero_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Taller4_JessicaRomero_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Taller4_JessicaRomero_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Taller4_JessicaRomero_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Taller 4</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jessica Romero </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="taller-4" class="level2">
+<h2 class="anchored" data-anchor-id="taller-4">Taller 4</h2>
+<p>Transformacion de datos y visualizacion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>meta_agromet <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/data_raw/metadata_estaciones_agrometAPI.rds"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>station_agromet_jessica <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/data_raw/station_id_agromet_Jesica.rds"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>station_agv_jessica <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/data_raw/station_id_agv_Jesica.rds"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>data_estaciones_agvAPI <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/data_raw/data_agvAPI.rds"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>data_estaciones_agrometAPI <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/data_raw/data_estaciones_agrometAPI.rds"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>meta_agromet_jess <span class="ot">&lt;-</span> meta_agromet[meta_agromet<span class="sc">$</span>ema <span class="sc">%in%</span> station_agromet_jessica,]</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>data_agromet_jess <span class="ot">&lt;-</span> data_estaciones_agrometAPI[data_estaciones_agrometAPI<span class="sc">$</span>station_id <span class="sc">%in%</span> station_agromet_jessica,]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>data_agro <span class="ot">&lt;-</span> data_estaciones_agrometAPI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="ejercicios-funciones" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicios-funciones">1 Ejercicios funciones</h2>
+<p>##1.1 <strong>Eliminar valores anómalos</strong></p>
+<ul>
+<li><p>Cree una función nombrada en R que permita tranformar en NA los valores anómalos de una variable <code>x</code></p>
+<p>La función debe transformar en NA los valores que se encuentran fuera del rango.</p></li>
+<li><p>Pruebe la función con un vector numérico creado por usted.</p></li>
+<li><p>Pruebe la función utilizando <code>mutate</code> con el set de datos <code>iris</code></p></li>
+<li><p>Transforme la función en una función anónima (lambda) y úsela con <code>mutate</code> con los datos <code>iris</code></p></li>
+<li><p>Utilice la función para eliminar valores anómalos del set de datos <code>agromet</code> en todas las variables climáticas, salvo en <code>grados_dias</code> y <code>horas_frio</code>, use la función como anónima.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="sc">-</span><span class="dv">10</span>,<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Taller4_JessicaRomero_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lim_inf <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,.<span class="dv">25</span>) <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(x)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>lim_sup <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,.<span class="dv">75</span>) <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(x)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">IQR</span>(x)<span class="co">#rango interquartil</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.197677</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          0%          25%          50%          75%         100% 
+-10.00000000  -0.49950038   0.06175631   0.69817699  10.00000000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>elimi_anomal <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  lim_inf <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,.<span class="dv">25</span>) <span class="sc">-</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(x)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  lim_sup <span class="ot">&lt;-</span> <span class="fu">quantile</span>(x,.<span class="dv">75</span>) <span class="sc">+</span> <span class="fl">1.5</span><span class="sc">*</span><span class="fu">IQR</span>(x)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">c</span>(lim_inf, lim_sup))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">elimi_anomal</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      25%       75% 
+-2.296016  2.494693 </code></pre>
+</div>
+</div>
+<p>1.2 <strong>Función para <code>{dplyr}</code> (ej., <code>mutate</code>) con multiples columnas como argumentos</strong></p>
+<ul>
+<li><p>Utilizando el set de datos <code>iris</code> y <code>mutate</code> haga el calculo en que cada columna numérica sea dividida por la raiz cuadrada de el promedio de <code>Sepal.Lenght</code>.</p></li>
+<li><p>Utilice <code>across</code> y <code>mutate</code> junto con una función anónima (lambda)</p></li>
+<li><p>Utilice <code>across</code> y <code>mutate</code> junto con una función nombrada (lambda)</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>rcsl <span class="ot">&lt;-</span>  <span class="fu">sqrt</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rcsl =</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(iris<span class="sc">$</span>Sepal.Length))) <span class="sc">|&gt;</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),<span class="at">.fns =</span> \(x) x<span class="sc">/</span>rcsl)) <span class="co">#con funcion anonima y nombrada</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 150 × 6
+# Groups:   Species [3]
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species  rcsl
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;   &lt;dbl&gt;
+ 1         2.11        1.45        0.579      0.0827 setosa      1
+ 2         2.03        1.24        0.579      0.0827 setosa      1
+ 3         1.94        1.32        0.538      0.0827 setosa      1
+ 4         1.90        1.28        0.621      0.0827 setosa      1
+ 5         2.07        1.49        0.579      0.0827 setosa      1
+ 6         2.23        1.61        0.703      0.165  setosa      1
+ 7         1.90        1.41        0.579      0.124  setosa      1
+ 8         2.07        1.41        0.621      0.0827 setosa      1
+ 9         1.82        1.20        0.579      0.0827 setosa      1
+10         2.03        1.28        0.621      0.0414 setosa      1
+# … with 140 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ahora solo la funcion par aplicar</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="cf">function</span>(x,y){ <span class="co">#la columna q toma es x</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">mean</span>(y))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(iris[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="dv">2</span>, <span class="at">FUN=</span>f, <span class="at">y=</span> iris<span class="sc">$</span>Sepal.Length) <span class="co">#2=columna</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Sepal.Length Sepal.Width Petal.Length Petal.Width
+  [1,]     2.109793   1.4478972    0.5791589  0.08273698
+  [2,]     2.027056   1.2410547    0.5791589  0.08273698
+  [3,]     1.944319   1.3237917    0.5377904  0.08273698
+  [4,]     1.902951   1.2824232    0.6205274  0.08273698
+  [5,]     2.068425   1.4892656    0.5791589  0.08273698
+  [6,]     2.233898   1.6133711    0.7032643  0.16547396
+  [7,]     1.902951   1.4065287    0.5791589  0.12410547
+  [8,]     2.068425   1.4065287    0.6205274  0.08273698
+  [9,]     1.820214   1.1996862    0.5791589  0.08273698
+ [10,]     2.027056   1.2824232    0.6205274  0.04136849
+ [11,]     2.233898   1.5306341    0.6205274  0.08273698
+ [12,]     1.985688   1.4065287    0.6618958  0.08273698
+ [13,]     1.985688   1.2410547    0.5791589  0.04136849
+ [14,]     1.778845   1.2410547    0.4550534  0.04136849
+ [15,]     2.399372   1.6547396    0.4964219  0.08273698
+ [16,]     2.358004   1.8202136    0.6205274  0.16547396
+ [17,]     2.233898   1.6133711    0.5377904  0.16547396
+ [18,]     2.109793   1.4478972    0.5791589  0.12410547
+ [19,]     2.358004   1.5720026    0.7032643  0.12410547
+ [20,]     2.109793   1.5720026    0.6205274  0.12410547
+ [21,]     2.233898   1.4065287    0.7032643  0.08273698
+ [22,]     2.109793   1.5306341    0.6205274  0.16547396
+ [23,]     1.902951   1.4892656    0.4136849  0.08273698
+ [24,]     2.109793   1.3651602    0.7032643  0.20684245
+ [25,]     1.985688   1.4065287    0.7860013  0.08273698
+ [26,]     2.068425   1.2410547    0.6618958  0.08273698
+ [27,]     2.068425   1.4065287    0.6618958  0.16547396
+ [28,]     2.151161   1.4478972    0.6205274  0.08273698
+ [29,]     2.151161   1.4065287    0.5791589  0.08273698
+ [30,]     1.944319   1.3237917    0.6618958  0.08273698
+ [31,]     1.985688   1.2824232    0.6618958  0.08273698
+ [32,]     2.233898   1.4065287    0.6205274  0.16547396
+ [33,]     2.151161   1.6961081    0.6205274  0.04136849
+ [34,]     2.275267   1.7374766    0.5791589  0.08273698
+ [35,]     2.027056   1.2824232    0.6205274  0.08273698
+ [36,]     2.068425   1.3237917    0.4964219  0.08273698
+ [37,]     2.275267   1.4478972    0.5377904  0.08273698
+ [38,]     2.027056   1.4892656    0.5791589  0.04136849
+ [39,]     1.820214   1.2410547    0.5377904  0.08273698
+ [40,]     2.109793   1.4065287    0.6205274  0.08273698
+ [41,]     2.068425   1.4478972    0.5377904  0.12410547
+ [42,]     1.861582   0.9514753    0.5377904  0.12410547
+ [43,]     1.820214   1.3237917    0.5377904  0.08273698
+ [44,]     2.068425   1.4478972    0.6618958  0.24821094
+ [45,]     2.109793   1.5720026    0.7860013  0.16547396
+ [46,]     1.985688   1.2410547    0.5791589  0.12410547
+ [47,]     2.109793   1.5720026    0.6618958  0.08273698
+ [48,]     1.902951   1.3237917    0.5791589  0.08273698
+ [49,]     2.192530   1.5306341    0.6205274  0.08273698
+ [50,]     2.068425   1.3651602    0.5791589  0.08273698
+ [51,]     2.895794   1.3237917    1.9443190  0.57915886
+ [52,]     2.647583   1.3237917    1.8615821  0.62052735
+ [53,]     2.854426   1.2824232    2.0270560  0.62052735
+ [54,]     2.275267   0.9514753    1.6547396  0.53779037
+ [55,]     2.688952   1.1583177    1.9029505  0.62052735
+ [56,]     2.358004   1.1583177    1.8615821  0.53779037
+ [57,]     2.606215   1.3651602    1.9443190  0.66189584
+ [58,]     2.027056   0.9928438    1.3651602  0.41368490
+ [59,]     2.730320   1.1996862    1.9029505  0.53779037
+ [60,]     2.151161   1.1169492    1.6133711  0.57915886
+ [61,]     2.068425   0.8273698    1.4478972  0.41368490
+ [62,]     2.440741   1.2410547    1.7374766  0.62052735
+ [63,]     2.482109   0.9101068    1.6547396  0.41368490
+ [64,]     2.523478   1.1996862    1.9443190  0.57915886
+ [65,]     2.316635   1.1996862    1.4892656  0.53779037
+ [66,]     2.771689   1.2824232    1.8202136  0.57915886
+ [67,]     2.316635   1.2410547    1.8615821  0.62052735
+ [68,]     2.399372   1.1169492    1.6961081  0.41368490
+ [69,]     2.564846   0.9101068    1.8615821  0.62052735
+ [70,]     2.316635   1.0342123    1.6133711  0.45505339
+ [71,]     2.440741   1.3237917    1.9856875  0.74463282
+ [72,]     2.523478   1.1583177    1.6547396  0.53779037
+ [73,]     2.606215   1.0342123    2.0270560  0.62052735
+ [74,]     2.523478   1.1583177    1.9443190  0.49642188
+ [75,]     2.647583   1.1996862    1.7788451  0.53779037
+ [76,]     2.730320   1.2410547    1.8202136  0.57915886
+ [77,]     2.813057   1.1583177    1.9856875  0.57915886
+ [78,]     2.771689   1.2410547    2.0684245  0.70326433
+ [79,]     2.482109   1.1996862    1.8615821  0.62052735
+ [80,]     2.358004   1.0755807    1.4478972  0.41368490
+ [81,]     2.275267   0.9928438    1.5720026  0.45505339
+ [82,]     2.275267   0.9928438    1.5306341  0.41368490
+ [83,]     2.399372   1.1169492    1.6133711  0.49642188
+ [84,]     2.482109   1.1169492    2.1097930  0.66189584
+ [85,]     2.233898   1.2410547    1.8615821  0.62052735
+ [86,]     2.482109   1.4065287    1.8615821  0.66189584
+ [87,]     2.771689   1.2824232    1.9443190  0.62052735
+ [88,]     2.606215   0.9514753    1.8202136  0.53779037
+ [89,]     2.316635   1.2410547    1.6961081  0.53779037
+ [90,]     2.275267   1.0342123    1.6547396  0.53779037
+ [91,]     2.275267   1.0755807    1.8202136  0.49642188
+ [92,]     2.523478   1.2410547    1.9029505  0.57915886
+ [93,]     2.399372   1.0755807    1.6547396  0.49642188
+ [94,]     2.068425   0.9514753    1.3651602  0.41368490
+ [95,]     2.316635   1.1169492    1.7374766  0.53779037
+ [96,]     2.358004   1.2410547    1.7374766  0.49642188
+ [97,]     2.358004   1.1996862    1.7374766  0.53779037
+ [98,]     2.564846   1.1996862    1.7788451  0.53779037
+ [99,]     2.109793   1.0342123    1.2410547  0.45505339
+[100,]     2.358004   1.1583177    1.6961081  0.53779037
+[101,]     2.606215   1.3651602    2.4821094  1.03421225
+[102,]     2.399372   1.1169492    2.1097930  0.78600131
+[103,]     2.937163   1.2410547    2.4407409  0.86873829
+[104,]     2.606215   1.1996862    2.3166354  0.74463282
+[105,]     2.688952   1.2410547    2.3993724  0.91010678
+[106,]     3.144005   1.2410547    2.7303203  0.86873829
+[107,]     2.027056   1.0342123    1.8615821  0.70326433
+[108,]     3.019900   1.1996862    2.6062149  0.74463282
+[109,]     2.771689   1.0342123    2.3993724  0.74463282
+[110,]     2.978531   1.4892656    2.5234779  1.03421225
+[111,]     2.688952   1.3237917    2.1097930  0.82736980
+[112,]     2.647583   1.1169492    2.1925300  0.78600131
+[113,]     2.813057   1.2410547    2.2752670  0.86873829
+[114,]     2.358004   1.0342123    2.0684245  0.82736980
+[115,]     2.399372   1.1583177    2.1097930  0.99284376
+[116,]     2.647583   1.3237917    2.1925300  0.95147527
+[117,]     2.688952   1.2410547    2.2752670  0.74463282
+[118,]     3.185374   1.5720026    2.7716888  0.91010678
+[119,]     3.185374   1.0755807    2.8544258  0.95147527
+[120,]     2.482109   0.9101068    2.0684245  0.62052735
+[121,]     2.854426   1.3237917    2.3580039  0.95147527
+[122,]     2.316635   1.1583177    2.0270560  0.82736980
+[123,]     3.185374   1.1583177    2.7716888  0.82736980
+[124,]     2.606215   1.1169492    2.0270560  0.74463282
+[125,]     2.771689   1.3651602    2.3580039  0.86873829
+[126,]     2.978531   1.3237917    2.4821094  0.74463282
+[127,]     2.564846   1.1583177    1.9856875  0.74463282
+[128,]     2.523478   1.2410547    2.0270560  0.74463282
+[129,]     2.647583   1.1583177    2.3166354  0.86873829
+[130,]     2.978531   1.2410547    2.3993724  0.66189584
+[131,]     3.061268   1.1583177    2.5234779  0.78600131
+[132,]     3.268111   1.5720026    2.6475834  0.82736980
+[133,]     2.647583   1.1583177    2.3166354  0.91010678
+[134,]     2.606215   1.1583177    2.1097930  0.62052735
+[135,]     2.523478   1.0755807    2.3166354  0.57915886
+[136,]     3.185374   1.2410547    2.5234779  0.95147527
+[137,]     2.606215   1.4065287    2.3166354  0.99284376
+[138,]     2.647583   1.2824232    2.2752670  0.74463282
+[139,]     2.482109   1.2410547    1.9856875  0.74463282
+[140,]     2.854426   1.2824232    2.2338985  0.86873829
+[141,]     2.771689   1.2824232    2.3166354  0.99284376
+[142,]     2.854426   1.2824232    2.1097930  0.95147527
+[143,]     2.399372   1.1169492    2.1097930  0.78600131
+[144,]     2.813057   1.3237917    2.4407409  0.95147527
+[145,]     2.771689   1.3651602    2.3580039  1.03421225
+[146,]     2.771689   1.2410547    2.1511615  0.95147527
+[147,]     2.606215   1.0342123    2.0684245  0.78600131
+[148,]     2.688952   1.2410547    2.1511615  0.82736980
+[149,]     2.564846   1.4065287    2.2338985  0.95147527
+[150,]     2.440741   1.2410547    2.1097930  0.74463282</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),<span class="at">.fns=</span>f, <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width)) <span class="co">#tamboien puedo usar everything()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 150 × 5
+# Groups:   Species [3]
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1         2.92        2.00        0.801      0.114  setosa 
+ 2         2.80        1.72        0.801      0.114  setosa 
+ 3         2.69        1.83        0.743      0.114  setosa 
+ 4         2.63        1.77        0.858      0.114  setosa 
+ 5         2.86        2.06        0.801      0.114  setosa 
+ 6         3.09        2.23        0.972      0.229  setosa 
+ 7         2.63        1.94        0.801      0.172  setosa 
+ 8         2.86        1.94        0.858      0.114  setosa 
+ 9         2.52        1.66        0.801      0.114  setosa 
+10         2.80        1.77        0.858      0.0572 setosa 
+# … with 140 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#transformar a una funcion anonima</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species) <span class="sc">|&gt;</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric),<span class="at">.fns=</span>\(x,y) x<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">mean</span>(y)), <span class="at">y =</span> iris<span class="sc">$</span>Sepal.Width)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 150 × 5
+# Groups:   Species [3]
+   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  
+ 1         2.92        2.00        0.801      0.114  setosa 
+ 2         2.80        1.72        0.801      0.114  setosa 
+ 3         2.69        1.83        0.743      0.114  setosa 
+ 4         2.63        1.77        0.858      0.114  setosa 
+ 5         2.86        2.06        0.801      0.114  setosa 
+ 6         3.09        2.23        0.972      0.229  setosa 
+ 7         2.63        1.94        0.801      0.172  setosa 
+ 8         2.86        1.94        0.858      0.114  setosa 
+ 9         2.52        1.66        0.801      0.114  setosa 
+10         2.80        1.77        0.858      0.0572 setosa 
+# … with 140 more rows</code></pre>
+</div>
+</div>
+<p>1.3 <strong>Resumir por rangos tipo categórica.</strong></p>
+<ul>
+<li><p>Cree una función que identifique tres grupos para un vector numérico <code>x</code>, alto, medio y bajo. Use la función <code>cut</code> y rangos de igual tamaño</p></li>
+<li><p>Pruebe la función con un vector numérico creado por usted.</p></li>
+<li><p>Pruebe la función utilizando <code>summarize</code> con el set de datos <code>iris</code></p></li>
+<li><p>Transforme la función en una función anónima (lambda) y úsela con <code>summarize</code> con los datos <code>iris</code></p></li>
+<li><p>Utilice la función para clasificar los set de datos <code>agromet</code> en todas las variables climáticas, salvo en <code>grados_dias</code> y <code>horas_frio</code>, use la función como anónima.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cut</span>(x,<span class="dv">3</span>, <span class="at">labels=</span><span class="fu">c</span>(<span class="st">'bajo'</span>, <span class="st">'medio'</span>, <span class="st">'alto'</span>))}</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co">#f1(1:100)</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">where</span>(is.numeric)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      ,<span class="at">.fns=</span>f1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1           bajo       medio         bajo        bajo     setosa
+2           bajo       medio         bajo        bajo     setosa
+3           bajo       medio         bajo        bajo     setosa
+4           bajo       medio         bajo        bajo     setosa
+5           bajo       medio         bajo        bajo     setosa
+6           bajo        alto         bajo        bajo     setosa
+7           bajo       medio         bajo        bajo     setosa
+8           bajo       medio         bajo        bajo     setosa
+9           bajo       medio         bajo        bajo     setosa
+10          bajo       medio         bajo        bajo     setosa
+11          bajo        alto         bajo        bajo     setosa
+12          bajo       medio         bajo        bajo     setosa
+13          bajo       medio         bajo        bajo     setosa
+14          bajo       medio         bajo        bajo     setosa
+15         medio        alto         bajo        bajo     setosa
+16         medio        alto         bajo        bajo     setosa
+17          bajo        alto         bajo        bajo     setosa
+18          bajo       medio         bajo        bajo     setosa
+19         medio        alto         bajo        bajo     setosa
+20          bajo        alto         bajo        bajo     setosa
+21          bajo       medio         bajo        bajo     setosa
+22          bajo        alto         bajo        bajo     setosa
+23          bajo       medio         bajo        bajo     setosa
+24          bajo       medio         bajo        bajo     setosa
+25          bajo       medio         bajo        bajo     setosa
+26          bajo       medio         bajo        bajo     setosa
+27          bajo       medio         bajo        bajo     setosa
+28          bajo       medio         bajo        bajo     setosa
+29          bajo       medio         bajo        bajo     setosa
+30          bajo       medio         bajo        bajo     setosa
+31          bajo       medio         bajo        bajo     setosa
+32          bajo       medio         bajo        bajo     setosa
+33          bajo        alto         bajo        bajo     setosa
+34          bajo        alto         bajo        bajo     setosa
+35          bajo       medio         bajo        bajo     setosa
+36          bajo       medio         bajo        bajo     setosa
+37          bajo       medio         bajo        bajo     setosa
+38          bajo       medio         bajo        bajo     setosa
+39          bajo       medio         bajo        bajo     setosa
+40          bajo       medio         bajo        bajo     setosa
+41          bajo       medio         bajo        bajo     setosa
+42          bajo        bajo         bajo        bajo     setosa
+43          bajo       medio         bajo        bajo     setosa
+44          bajo       medio         bajo        bajo     setosa
+45          bajo        alto         bajo        bajo     setosa
+46          bajo       medio         bajo        bajo     setosa
+47          bajo        alto         bajo        bajo     setosa
+48          bajo       medio         bajo        bajo     setosa
+49          bajo        alto         bajo        bajo     setosa
+50          bajo       medio         bajo        bajo     setosa
+51          alto       medio        medio       medio versicolor
+52         medio       medio        medio       medio versicolor
+53          alto       medio        medio       medio versicolor
+54          bajo        bajo        medio       medio versicolor
+55         medio        bajo        medio       medio versicolor
+56         medio        bajo        medio       medio versicolor
+57         medio       medio        medio       medio versicolor
+58          bajo        bajo        medio       medio versicolor
+59         medio       medio        medio       medio versicolor
+60          bajo        bajo        medio       medio versicolor
+61          bajo        bajo        medio       medio versicolor
+62         medio       medio        medio       medio versicolor
+63         medio        bajo        medio       medio versicolor
+64         medio       medio        medio       medio versicolor
+65         medio       medio        medio       medio versicolor
+66         medio       medio        medio       medio versicolor
+67         medio       medio        medio       medio versicolor
+68         medio        bajo        medio       medio versicolor
+69         medio        bajo        medio       medio versicolor
+70         medio        bajo        medio       medio versicolor
+71         medio       medio        medio        alto versicolor
+72         medio        bajo        medio       medio versicolor
+73         medio        bajo        medio       medio versicolor
+74         medio        bajo        medio       medio versicolor
+75         medio       medio        medio       medio versicolor
+76         medio       medio        medio       medio versicolor
+77          alto        bajo        medio       medio versicolor
+78         medio       medio         alto       medio versicolor
+79         medio       medio        medio       medio versicolor
+80         medio        bajo        medio       medio versicolor
+81          bajo        bajo        medio       medio versicolor
+82          bajo        bajo        medio       medio versicolor
+83         medio        bajo        medio       medio versicolor
+84         medio        bajo         alto       medio versicolor
+85          bajo       medio        medio       medio versicolor
+86         medio       medio        medio       medio versicolor
+87         medio       medio        medio       medio versicolor
+88         medio        bajo        medio       medio versicolor
+89         medio       medio        medio       medio versicolor
+90          bajo        bajo        medio       medio versicolor
+91          bajo        bajo        medio       medio versicolor
+92         medio       medio        medio       medio versicolor
+93         medio        bajo        medio       medio versicolor
+94          bajo        bajo        medio       medio versicolor
+95         medio        bajo        medio       medio versicolor
+96         medio       medio        medio       medio versicolor
+97         medio       medio        medio       medio versicolor
+98         medio       medio        medio       medio versicolor
+99          bajo        bajo        medio       medio versicolor
+100        medio        bajo        medio       medio versicolor
+101        medio       medio         alto        alto  virginica
+102        medio        bajo         alto        alto  virginica
+103         alto       medio         alto        alto  virginica
+104        medio       medio         alto        alto  virginica
+105        medio       medio         alto        alto  virginica
+106         alto       medio         alto        alto  virginica
+107         bajo        bajo        medio       medio  virginica
+108         alto       medio         alto        alto  virginica
+109        medio        bajo         alto        alto  virginica
+110         alto       medio         alto        alto  virginica
+111        medio       medio         alto        alto  virginica
+112        medio        bajo         alto        alto  virginica
+113         alto       medio         alto        alto  virginica
+114        medio        bajo         alto        alto  virginica
+115        medio        bajo         alto        alto  virginica
+116        medio       medio         alto        alto  virginica
+117        medio       medio         alto        alto  virginica
+118         alto        alto         alto        alto  virginica
+119         alto        bajo         alto        alto  virginica
+120        medio        bajo         alto       medio  virginica
+121         alto       medio         alto        alto  virginica
+122        medio        bajo        medio        alto  virginica
+123         alto        bajo         alto        alto  virginica
+124        medio        bajo        medio        alto  virginica
+125        medio       medio         alto        alto  virginica
+126         alto       medio         alto        alto  virginica
+127        medio        bajo        medio        alto  virginica
+128        medio       medio        medio        alto  virginica
+129        medio        bajo         alto        alto  virginica
+130         alto       medio         alto       medio  virginica
+131         alto        bajo         alto        alto  virginica
+132         alto        alto         alto        alto  virginica
+133        medio        bajo         alto        alto  virginica
+134        medio        bajo         alto       medio  virginica
+135        medio        bajo         alto       medio  virginica
+136         alto       medio         alto        alto  virginica
+137        medio       medio         alto        alto  virginica
+138        medio       medio         alto        alto  virginica
+139        medio       medio        medio        alto  virginica
+140         alto       medio         alto        alto  virginica
+141        medio       medio         alto        alto  virginica
+142         alto       medio         alto        alto  virginica
+143        medio        bajo         alto        alto  virginica
+144         alto       medio         alto        alto  virginica
+145        medio       medio         alto        alto  virginica
+146        medio       medio         alto        alto  virginica
+147        medio        bajo         alto        alto  virginica
+148        medio       medio         alto        alto  virginica
+149        medio       medio         alto        alto  virginica
+150        medio       medio         alto        alto  virginica</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#aplicar para agromet</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data_agromet_jess <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">mes =</span> <span class="fu">floor_date</span>(fecha_hora, <span class="st">'1 month'</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">11</span>,<span class="at">.fns=</span>f1)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,188,096 × 14
+# Groups:   mes [12]
+   station_id fecha_hora temp_…¹ preci…² humed…³ presi…⁴ radia…⁵ veloc…⁶ temp_…⁷
+        &lt;dbl&gt; &lt;fct&gt;      &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;   &lt;fct&gt;  
+ 1          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 2          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 3          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 4          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 5          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 6          6 bajo       medio   bajo    alto    alto    bajo    bajo    medio  
+ 7          6 bajo       medio   bajo    medio   alto    bajo    bajo    medio  
+ 8          6 bajo       alto    bajo    medio   alto    medio   bajo    alto   
+ 9          6 bajo       alto    bajo    medio   alto    medio   bajo    alto   
+10          6 bajo       alto    bajo    medio   alto    medio   bajo    alto   
+# … with 1,188,086 more rows, 5 more variables: temp_maxima &lt;fct&gt;,
+#   direccion_del_viento &lt;fct&gt;, grados_dia &lt;dbl&gt;, horas_frio &lt;dbl&gt;, mes &lt;dttm&gt;,
+#   and abbreviated variable names ¹​temp_promedio_aire, ²​precipitacion_horaria,
+#   ³​humed_rel_promedio, ⁴​presion_atmosferica, ⁵​radiacion_solar_max,
+#   ⁶​veloc_max_viento, ⁷​temp_minima</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
