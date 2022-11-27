@@ -1,0 +1,187 @@
+---
+title: "Taller 4"
+author: "Jessica Romero"
+format: html
+editor: visual
+---
+
+## Taller 4
+
+Transformacion de datos y visualizacion.
+
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+
+meta_agromet <- readRDS("../data/data_raw/metadata_estaciones_agrometAPI.rds")
+station_agromet_jessica <- readRDS("../data/data_raw/station_id_agromet_Jesica.rds")
+station_agv_jessica <- readRDS("../data/data_raw/station_id_agv_Jesica.rds")
+data_estaciones_agvAPI <- readRDS("../data/data_raw/data_agvAPI.rds")
+data_estaciones_agrometAPI <- readRDS("../data/data_raw/data_estaciones_agrometAPI.rds")
+meta_agromet_jess <- meta_agromet[meta_agromet$ema %in% station_agromet_jessica,]
+data_agromet_jess <- data_estaciones_agrometAPI[data_estaciones_agrometAPI$station_id %in% station_agromet_jessica,]
+data_agro <- data_estaciones_agrometAPI
+```
+
+## 1 Ejercicios funciones
+
+1.1 **Eliminar valores anómalos**
+
+-   Cree una función nombrada en R que permita tranformar en NA los valores anómalos de una variable `x`
+
+    La función debe transformar en NA los valores que se encuentran fuera del rango.
+
+-   Pruebe la función con un vector numérico creado por usted.
+
+-   Pruebe la función utilizando `mutate` con el set de datos `iris`
+
+-   Transforme la función en una función anónima (lambda) y úsela con `mutate` con los datos `iris`
+
+-   Utilice la función para eliminar valores anómalos del set de datos `agromet` en todas las variables climáticas, salvo en `grados_dias` y `horas_frio`, use la función como anónima.
+
+```{r}
+library(dplyr)
+library(tidyr)
+
+set.seed(123)
+x <- c(10,-10,rnorm(100))
+hist(x)
+
+lim_inf <- quantile(x,.25) - 1.5*IQR(x)
+lim_sup <- quantile(x,.75) + 1.5*IQR(x)
+
+IQR(x)#rango interquartil
+quantile(x)
+
+
+elimi_anomal <- function(x){
+  lim_inf <- quantile(x,.25) - 1.5*IQR(x)
+  lim_sup <- quantile(x,.75) + 1.5*IQR(x)
+  return(c(lim_inf, lim_sup))
+}
+
+elimi_anomal(x)
+```
+
+1.2 **Función para `{dplyr}` (ej., `mutate`) con multiples columnas como argumentos**
+
+-   Utilizando el set de datos `iris` y `mutate` haga el calculo en que cada columna numérica sea dividida por la raiz cuadrada de el promedio de `Sepal.Lenght`.
+
+-   Utilice `across` y `mutate` junto con una función anónima (lambda)
+
+-   Utilice `across` y `mutate` junto con una función nombrada (lambda)
+
+```{r}
+library(dplyr)
+
+rcsl <-  sqrt(mean(iris$Sepal.Length))
+
+iris |> 
+  group_by(Species) |>
+  mutate(rcsl = sqrt(mean(iris$Sepal.Length))) |>
+  mutate(across(where(is.numeric),.fns = \(x) x/rcsl)) #con funcion anonima y nombrada
+
+#ahora solo la funcion par aplicar
+f <- function(x,y){ #la columna q toma es x
+  x/sqrt(mean(y))
+}
+
+apply(iris[,1:4], 2, FUN=f, y= iris$Sepal.Length) #2=columna
+
+
+iris |>
+  group_by(Species) |> 
+  mutate(across(where(is.numeric),.fns=f, y = iris$Sepal.Width)) #tamboien puedo usar everything()
+  
+#transformar a una funcion anonima
+iris |>
+  group_by(Species) |>
+  mutate(across(where(is.numeric),.fns=\(x,y) x/sqrt(mean(y)), y = iris$Sepal.Width)) 
+```
+
+1.3 **Resumir por rangos tipo categórica.**
+
+-   Cree una función que identifique tres grupos para un vector numérico `x`, alto, medio y bajo. Use la función `cut` y rangos de igual tamaño
+
+-   Pruebe la función con un vector numérico creado por usted.
+
+-   Pruebe la función utilizando `summarize` con el set de datos `iris`
+
+-   Transforme la función en una función anónima (lambda) y úsela con `summarize` con los datos `iris`
+
+-   Utilice la función para clasificar los set de datos `agromet` en todas las variables climáticas, salvo en `grados_dias` y `horas_frio`, use la función como anónima.
+
+```{r}
+x <- 1:100
+f1 <- function(x){
+  cut(x,3, labels=c('bajo', 'medio', 'alto'))}
+#f1(1:100)
+
+
+iris |>
+  mutate(
+    across(
+      where(is.numeric)
+      ,.fns=f1))
+
+#aplicar para agromet
+library(lubridate)
+
+
+data_agromet_jess |>
+  group_by(mes = floor_date(fecha_hora, '1 month')) |>
+    mutate(across(2:11,.fns=f1)) 
+
+```
+
+1.4 **Coeficiente de variación**
+
+-   Cree una función que permita seleccionar las variables numéricas cuyos valores son menores a un coeficiente de variación (CV) de 0.3 (30%).
+
+CV = \frac{\sigma}{\bar{x}}CV=xˉσ​
+
+-   Cree una función nombrada y apliquela a un vector aleatorio.
+
+-   Aplique la función con `apply` a las columnas numéricas del set de datos `iris`
+
+-   Aplique la función con `where` para seleccionar columnas del set de datos `iris`
+
+-   Aplique la función al set de datos agromet en el que se filtraron los valores anómalos.
+
+```{r}
+cvar <- function(x){
+  if(is.numeric(x)){
+    x <- na.omit(x)
+    cv<- sd(x)/mean(x)
+    out <- cv < 0.3
+  } else out <- FALSE
+  return(out)
+}
+
+x <- runif(10)
+y <- rnorm(200)
+
+apply(iris[,1:4],2,FUN =cvar)
+apply(select(iris, where(is.numeric)),2,FUN=cvar)
+
+
+cvar(x)
+cvar(y)
+
+
+any(c(TRUE,FALSE,NA),na.rm = TRUE)
+
+
+
+iris |>
+  select(where(cvar))
+
+#para datos agromet
+data |> mutate(across(everything(),elim_anomal, na.rm = TRUE)) |>
+  drop_na() |>
+  select(where(cvar))
+
+```
+
+\
